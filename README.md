@@ -132,7 +132,7 @@ int main(void)
   /* USER CODE END 3 */
 }
 ```
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 ### PCB Layout:
 
 ![pcblayout](https://user-images.githubusercontent.com/75234946/233892575-871687fd-5df7-48cd-8136-fc734d8a9a1d.png)
