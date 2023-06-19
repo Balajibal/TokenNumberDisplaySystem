@@ -1,26 +1,25 @@
 # STM32 Based Token Number Display System
 
-### AIM:
+## AIM
 To develop a single sided PCB board for a single digit token number display system with buzzer.
 
-### Requirement:
-Proteus Software
+## REQUIREMENT
+* Proteus software
+* CUBE IDE software
 
-### Schematic:
+## STEPS
+- Open proteus software and draw the schematic diagram.
+- Open PCB layout and convert it to 3D view.
+- Open IDE software configure the I/O pins.
+- Write the code for seven segment display and buzzer.
+- Upload the elf file and run.
 
-1) Design the circuit using schematic diagram
+## SCHEMATIC
 
-2) Open pcb layout and convert it to 3d view
+![Chethan](https://user-images.githubusercontent.com/75234991/235116376-579f49a9-8f33-4a4c-a862-ac75abb1c086.png)
 
-3) Configure I/O pins using idle software
-
-4) Change the code such that it is suited for seven segment display
-
-5) upload the elf and run
-
-### Code:
-```c
-
+## CODE
+```python3
 void display(int n)
 {
 		int x[11][8]={{0,0,1,1,1,1,1,1},{0,0,0,0,0,1,1,0},{0,1,0,1,1,0,1,1},{1,1,0,0,1,1,1,1},{0,1,1,0,0,1,1,0},{0,1,1,0,1,1,0,1},{0,1,1,1,1,1,0,1},{0,0,0,0,0,1,1,1},{0,1,1,1,1,1,1,1},{0,1,1,0,0,1,1,1}};
@@ -32,34 +31,34 @@ void display(int n)
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
 
 			if(x[n][1]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 			else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
 
 			if(x[n][2]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
 			if(x[n][3]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 			if(x[n][4]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
 			if(x[n][5]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			if(x[n][6]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 			if(x[n][7]==1)
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
-						else
-							HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET);
+			else
+				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 
 		}
 		else
@@ -72,7 +71,6 @@ void display(int n)
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
-
 		}
 
 }
@@ -125,30 +123,28 @@ int main(void)
 
 	  }
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
-	  		  HAL_Delay(3000);
-	  		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+	  HAL_Delay(3000);
+	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
 ```
-<br><br><br><br><br><br>
-### PCB Layout:
+## PCB LAYOUT
+![Screenshot 2023-04-24 110838](https://github.com/Y-CHETHAN/TokenNumberDisplaySystem/assets/75234991/99759304-5d8e-499d-b4d1-d1fdcf710013)
 
-![pcblayout](https://user-images.githubusercontent.com/75234946/233892575-871687fd-5df7-48cd-8136-fc734d8a9a1d.png)
-<br><br></br></br><br><br></br></br><br><br></br></br><br><br></br></br>
-#### TopLayer:
 
-![toplayer-min](https://user-images.githubusercontent.com/75234946/233893725-86d8eccb-ac35-428b-ba8f-c95f933311a5.png)
+## TOP LAYER
 
-#### BottomLayer:
+![Screenshot 2023-04-24 110824](https://user-images.githubusercontent.com/65499285/233920231-ee96c0ea-20cb-4e57-90e3-9312bd1cdae3.png)
 
-![botlayr](https://user-images.githubusercontent.com/75234946/233892794-ddffa4a2-7662-4366-a898-1357a5c21bad.png)
+## BOTTOM LAYER
 
-### 3D View:
+![image](https://user-images.githubusercontent.com/65499285/235099368-1df410ce-d866-4d57-a4da-d4afe1463bb5.png)
 
-![3dview](https://user-images.githubusercontent.com/75234946/234775963-1b46b871-5a80-4f46-a04b-cc45e2c5fdea.png)
+## 3D VIEW
 
-### Result:
+![image](https://user-images.githubusercontent.com/65499285/235099324-ffc8dd62-0957-4f60-9a1b-3a9a9e795e19.png)
 
-Thus, a single sided PCB board for a single digit token number display system with buzzer is developed
+## RESULT
+Thus, the simulation of token number display with buzzer is executed successfully.
